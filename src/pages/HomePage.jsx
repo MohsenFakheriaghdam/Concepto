@@ -32,7 +32,7 @@ export default function HomePage() {
 			description: "From requesting a ride to ordering food and grocery shopping, you can do it all with the Snapp super app",
 			location: "Iran, Tehran",
 			rating: 4.8,
-			logo: "/public/image/snaplogo.jpg",
+			logo: "/image/snaplogo.jpg",
 		},
 		{
 			id: 2,
@@ -44,7 +44,7 @@ export default function HomePage() {
 				"Buy everything you need at the best price from Digikala! The latest mobile phones, laptops, clothing, cosmetics and personal care products, books, home appliances, cars, and more",
 			location: "Iran, Tehran",
 			rating: 4.6,
-			logo: "/public/image/cropped-Site-Icon.jpg",
+			logo: "/image/cropped-Site-Icon.jpg",
 		},
 		{
 			id: 3,
@@ -56,7 +56,7 @@ export default function HomePage() {
 				"Flight ticket booking with Alibaba: the most experienced and trusted platform for reserving flight tickets and purchasing charter and system airline tickets, as well as train and bus tickets online",
 			location: "Iran, Tehran",
 			rating: 4.9,
-			logo: "/public/image/alibaba.jpg",
+			logo: "/image/alibaba.jpg",
 		},
 		{
 			id: 4,
@@ -68,7 +68,7 @@ export default function HomePage() {
 				"IranServer’s personal templates are a very smart choice for launching a personal website, portfolio, or individual résumé. They include custom domain registration, personal name SEO, integration with social networks, and more",
 			location: "Iran, Tehran",
 			rating: 4.5,
-			logo: "/public/image/iranserver.jpg",
+			logo: "/image/iranserver.jpg",
 		},
 		{
 			id: 5,
@@ -80,18 +80,18 @@ export default function HomePage() {
 				"The first legal source for purchasing and downloading commercial (original) WordPress themes and templates, with free installation, support, and quality guarantee — RTL Theme®, RTL WordPress Themes",
 			location: "Iran, Tehran",
 			rating: 4.7,
-			logo: "/public/image/604U4zrw_400x400.jpg",
+			logo: "/image/604U4zrw_400x400.jpg",
 		},
 	];
 
 	const jobOpportunities = [
-		{ id: 1, company: "Snap", logo: "/public/image/snaplogo.jpg", positions: 12 },
-		{ id: 2, company: "Digikala", logo: "/public/image/cropped-Site-Icon.jpg", positions: 8 },
-		{ id: 3, company: "Alibaba", logo: "/public/image/alibaba.jpg", positions: 15 },
-		{ id: 4, company: "Iranserver", logo: "/public/image/iranserver.jpg", positions: 6 },
-		{ id: 5, company: "RTL Theme", logo: "/public/image/604U4zrw_400x400.jpg", positions: 5 },
-		{ id: 6, company: "DigiPay", logo: "/public/image/digipay.jpg", positions: 10 },
-		{ id: 7, company: "Takht-Jamshid", logo: "/public/image/takht.jpg", positions: 22 },
+		{ id: 1, company: "Snap", logo: "/image/snaplogo.jpg", positions: 12 },
+		{ id: 2, company: "Digikala", logo: "/image/cropped-Site-Icon.jpg", positions: 8 },
+		{ id: 3, company: "Alibaba", logo: "/image/alibaba.jpg", positions: 15 },
+		{ id: 4, company: "Iranserver", logo: "/image/iranserver.jpg", positions: 6 },
+		{ id: 5, company: "RTL Theme", logo: "/image/604U4zrw_400x400.jpg", positions: 5 },
+		{ id: 6, company: "DigiPay", logo: "/image/digipay.jpg", positions: 10 },
+		{ id: 7, company: "Takht-Jamshid", logo: "/image/takht.jpg", positions: 22 },
 	];
 
 	const newsAndEvents = [
