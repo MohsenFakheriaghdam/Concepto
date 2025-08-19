@@ -15,7 +15,7 @@ export default function HomePage() {
 		"Healthcare",
 		"E-commerce",
 		"Education",
-		"Artificial Intelligence",
+		"Transportation",
 		"Blockchain",
 		"Renewable Energy",
 		"Food & Beverage",
@@ -25,69 +25,73 @@ export default function HomePage() {
 	const popularCompanies = [
 		{
 			id: 1,
-			name: "TechNova",
-			category: "Artificial Intelligence",
+			name: "Snap",
+			category: "E-commerce",
 			followers: 1245,
 			investors: 86,
-			description: "Revolutionizing business with AI-powered solutions",
-			location: "USA, San Francisco",
+			description: "From requesting a ride to ordering food and grocery shopping, you can do it all with the Snapp super app",
+			location: "Iran, Tehran",
 			rating: 4.8,
-			logo: "https://via.placeholder.com/80",
+			logo: "/public/image/snaplogo.jpg",
 		},
 		{
 			id: 2,
-			name: "GreenPower",
-			category: "Renewable Energy",
-			followers: 982,
+			name: "Digikala",
+			category: "E-commerce",
+			followers: 1000,
 			investors: 45,
-			description: "Sustainable energy solutions for the future",
-			location: "Germany, Berlin",
+			description:
+				"Buy everything you need at the best price from Digikala! The latest mobile phones, laptops, clothing, cosmetics and personal care products, books, home appliances, cars, and more",
+			location: "Iran, Tehran",
 			rating: 4.6,
-			logo: "https://via.placeholder.com/80",
+			logo: "/public/image/cropped-Site-Icon.jpg",
 		},
 		{
 			id: 3,
-			name: "FinEdge",
-			category: "Finance",
+			name: "Alibaba",
+			category: "E-commerce",
 			followers: 1560,
 			investors: 112,
-			description: "Next-gen financial services platform",
-			location: "UK, London",
+			description:
+				"Flight ticket booking with Alibaba: the most experienced and trusted platform for reserving flight tickets and purchasing charter and system airline tickets, as well as train and bus tickets online",
+			location: "Iran, Tehran",
 			rating: 4.9,
-			logo: "https://via.placeholder.com/80",
+			logo: "/public/image/alibaba.jpg",
 		},
 		{
 			id: 4,
-			name: "HealthPlus",
-			category: "Healthcare",
+			name: "Iranserver",
+			category: "E-commerce",
 			followers: 876,
 			investors: 34,
-			description: "Innovative healthcare technology solutions",
-			location: "Canada, Toronto",
+			description:
+				"IranServer’s personal templates are a very smart choice for launching a personal website, portfolio, or individual résumé. They include custom domain registration, personal name SEO, integration with social networks, and more",
+			location: "Iran, Tehran",
 			rating: 4.5,
-			logo: "https://via.placeholder.com/80",
+			logo: "/public/image/iranserver.jpg",
 		},
 		{
 			id: 5,
-			name: "ShopSphere",
+			name: " RTL Theme",
 			category: "E-commerce",
 			followers: 2045,
 			investors: 156,
-			description: "The future of online shopping",
-			location: "USA, New York",
+			description:
+				"The first legal source for purchasing and downloading commercial (original) WordPress themes and templates, with free installation, support, and quality guarantee — RTL Theme®, RTL WordPress Themes",
+			location: "Iran, Tehran",
 			rating: 4.7,
-			logo: "https://via.placeholder.com/80",
+			logo: "/public/image/604U4zrw_400x400.jpg",
 		},
 	];
 
 	const jobOpportunities = [
-		{ id: 1, company: "TechNova", logo: "https://via.placeholder.com/60", positions: 12 },
-		{ id: 2, company: "GreenPower", logo: "https://via.placeholder.com/60", positions: 8 },
-		{ id: 3, company: "FinEdge", logo: "https://via.placeholder.com/60", positions: 15 },
-		{ id: 4, company: "HealthPlus", logo: "https://via.placeholder.com/60", positions: 6 },
-		{ id: 5, company: "ShopSphere", logo: "https://via.placeholder.com/60", positions: 22 },
-		{ id: 6, company: "DataMind", logo: "https://via.placeholder.com/60", positions: 9 },
-		{ id: 7, company: "CloudNest", logo: "https://via.placeholder.com/60", positions: 11 },
+		{ id: 1, company: "Snap", logo: "/public/image/snaplogo.jpg", positions: 12 },
+		{ id: 2, company: "Digikala", logo: "/public/image/cropped-Site-Icon.jpg", positions: 8 },
+		{ id: 3, company: "Alibaba", logo: "/public/image/alibaba.jpg", positions: 15 },
+		{ id: 4, company: "Iranserver", logo: "/public/image/iranserver.jpg", positions: 6 },
+		{ id: 5, company: "RTL Theme", logo: "/public/image/604U4zrw_400x400.jpg", positions: 5 },
+		{ id: 6, company: "DigiPay", logo: "/public/image/digipay.jpg", positions: 10 },
+		{ id: 7, company: "Takht-Jamshid", logo: "/public/image/takht.jpg", positions: 22 },
 	];
 
 	const newsAndEvents = [
@@ -183,7 +187,7 @@ export default function HomePage() {
 												<span className="text-sm text-gray-500">{company.category}</span>
 											</div>
 										</div>
-										<p className="text-gray-600 mb-4">{company.description}</p>
+										<p className="text-gray-500 mb-4  line-clamp-2">{company.description}</p>
 										<div className="flex justify-between text-sm mb-4">
 											<div>
 												<span className="font-medium">{company.followers.toLocaleString()}</span>
