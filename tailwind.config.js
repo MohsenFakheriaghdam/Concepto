@@ -48,25 +48,42 @@ export default {
 				4: "16px", // gutter موبایل
 				6: "24px", // gutter دسکتاپ
 			},
+			fontSize: {
+				// Display Font Size
+				"display-2": ["56px", { lineHeight: "120%", fontWeight: "bold" }],
+				"display-1": ["64px", { lineHeight: "140%", fontWeight: "bold" }],
 
-			darkMode: "class",
-			theme: {
-				extend: {
-					colors: {
-						primary: {
-							50: "#f0f9ff",
-							100: "#e0f2fe",
-							200: "#bae6fd",
-							300: "#7dd3fc",
-							400: "#38bdf8",
-							500: "#0ea5e9",
-							600: "#0284c7",
-							700: "#0369a1",
-							800: "#075985",
-							900: "#0c4a6e",
-						},
-					},
-				},
+				// Heading Font Size
+				"h-1": ["44px", { lineHeight: "140%", fontWeight: "bold" }],
+				"h-2": ["40px", { lineHeight: "140%", fontWeight: "bold" }],
+				"h-3": ["32px", { lineHeight: "140%", fontWeight: "bold" }],
+				"h-4": ["24px", { lineHeight: "140%", fontWeight: "bold" }],
+				"h-5": ["20px", { lineHeight: "140%", fontWeight: "bold" }],
+				"h-6": ["16px", { lineHeight: "140%", fontWeight: "bold" }],
+
+				// Body Font Size
+
+				"body-3xlg": ["44px", { lineHeight: "140%", fontWeight: "medium" }],
+				"body-2xlg": ["40px", { lineHeight: "140%", fontWeight: "medium" }],
+				"body-xlg": ["32px", { lineHeight: "140%", fontWeight: "medium" }],
+				"body-lg": ["28px", { lineHeight: "180%", fontWeight: "regular" }],
+				"body-md": ["24px", { lineHeight: "180%", fontWeight: "medium" }],
+				"body-smd": ["24px", { lineHeight: "180%", fontWeight: "regular" }],
+				"body-regular": ["20px", { lineHeight: "180%", fontWeight: "regular" }],
+				"body-s": ["18px", { lineHeight: "180%", fontWeight: "regular" }],
+				"body-xs": ["16px", { lineHeight: "180%", fontWeight: "regular" }],
+				"body-xxs": ["14px", { lineHeight: "180%", fontWeight: "regular" }],
+
+				// Caption
+				"caption-lg": ["14px", { lineHeight: "180%", fontWeight: "bold" }],
+				"caption-md": ["12px", { lineHeight: "180%", fontWeight: "regular" }],
+
+				// Button
+
+				"button-xlg": ["18px", { lineHeight: "180%", fontWeight: "medium" }],
+				"button-lg": ["16px", { lineHeight: "180%", fontWeight: "medium" }],
+				"button-md": ["14px", { lineHeight: "180%", fontWeight: "medium" }],
+				"button-s": ["12px", { lineHeight: "180%", fontWeight: "medium" }],
 			},
 		},
 	},

@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	font-family: Vazirmatn, sans-serif;
+}
+
+.fade-in {
+	animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.modal-overlay {
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(4px);
+}
+
+.input-field:focus {
+	box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+}
+
+.auth-switch {
+	transition: all 0.3s ease;
+}
+
+.auth-switch.active {
+	background-color: #6366f1;
+	color: white;
+}
+
 @layer components {
 	.container {
 		@apply mx-auto max-w-container px-4 md:px-[120px];
@@ -63,4 +98,42 @@
 	.mobile-menu.open {
 		max-height: 500px;
 	}
+}
+.scroll-container {
+	scrollbar-width: thin;
+	scrollbar-color: #6366f1 #f1f1f1;
+}
+.scroll-container::-webkit-scrollbar {
+	height: 8px;
+}
+.scroll-container::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 10px;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+	background-color: #6366f1;
+	border-radius: 10px;
+}
+.gradient-bg {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.company-card {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.company-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+.job-card {
+	transition: transform 0.3s ease;
+}
+.job-card:hover {
+	transform: scale(1.05);
+}
+.category-chip {
+	transition: all 0.3s ease;
+}
+.category-chip:hover {
+	background-color: #6366f1;
+	color: white;
 }

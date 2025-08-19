@@ -1,4 +1,5 @@
 import React from "react";
+import AuthModal from "./AuthModal";
 
 const { useState, useEffect } = React;
 
@@ -6,6 +7,7 @@ export default function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [searchQuery, setSearchQuery] = useState("");
+	const [isAuthOpen, setIsAuthOpen] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -32,7 +34,7 @@ export default function Navbar() {
 
 	return (
 		<nav
-			className={`fixed w-full z-50 transition-all duration-300 ${
+			className={`sticky w-full z-50 transition-all duration-300 ${
 				isScrolled ? "bg-white shadow-md py-2" : "bg-white/90 backdrop-blur-sm py-4"
 			}`}
 		>
@@ -94,11 +96,14 @@ export default function Navbar() {
 						</form>
 
 						<div className="flex space-x-2">
-							<button className="px-4 py-2 rounded-md text-sm font-medium text-indigo-600 hover:bg-indigo-50 transition-colors">
+							{/* <button className="px-4 py-2 rounded-md text-sm font-medium text-indigo-600 hover:bg-indigo-50 transition-colors">
 								Log In
-							</button>
-							<button className="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-sm">
-								Sign Up
+							</button> */}
+							<button
+								onClick={() => setIsAuthOpen(true)}
+								className="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-sm"
+							>
+								Sign Up / Log In
 							</button>
 						</div>
 					</div>
@@ -149,13 +154,28 @@ export default function Navbar() {
 					</a>
 
 					<div className="pt-4 border-t border-gray-200">
-						<button className="w-full px-4 py-2 rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50 mb-2">Log In</button>
-						<button className="w-full px-4 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm">
-							Sign Up
+						<button
+							onClick={() => setIsAuthOpen(true)}
+							className="w-full px-4 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm"
+						>
+							Log In / Sign Up
 						</button>
 					</div>
 				</div>
 			</div>
+			<AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
 		</nav>
 	);
+}
+
+{
+	/* <button className="w-full px-4 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm">
+	Log In / Sign Up
+</button>; */
+}
+
+{
+	/* <button className="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-sm">
+	Sign Up / Log In
+</button>; */
 }
