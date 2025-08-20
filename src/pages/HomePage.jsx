@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const { useState, useEffect } = React;
 
@@ -120,6 +121,12 @@ export default function HomePage() {
 
 	const [activeCategory, setActiveCategory] = useState("All");
 
+	const navigate = useNavigate();
+
+	const handleCompanyClick = (company) => {
+		navigate(`/company/${company.id}`, { state: { company } });
+	};
+
 	return (
 		<div className="min-h-screen ">
 			{/* Hero Section */}
@@ -178,7 +185,13 @@ export default function HomePage() {
 					<div className="scroll-container overflow-x-auto pb-4">
 						<div className="flex space-x-6" style={{ minWidth: `${popularCompanies.length * 320}px` }}>
 							{popularCompanies.map((company) => (
-								<div key={company.id} className="company-card bg-white rounded-xl shadow-md overflow-hidden w-80 flex-shrink-0">
+								<button
+									key={company.id}
+									className="company-card bg-white rounded-xl shadow-md overflow-hidden w-80 flex-shrink-0 text-left focus:outline-none"
+									onClick={() => handleCompanyClick(company)}
+									tabIndex={0}
+									style={{ cursor: "pointer" }}
+								>
 									<div className="p-6">
 										<div className="flex items-center mb-4">
 											<img src={company.logo} alt={company.name} className="w-16 h-16 rounded-full object-cover mr-4" />
@@ -209,7 +222,8 @@ export default function HomePage() {
 											</div>
 										</div>
 									</div>
-								</div>
+								</button>
+								// ...existing code...
 							))}
 						</div>
 					</div>

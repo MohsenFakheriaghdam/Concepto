@@ -7,17 +7,20 @@ import Navbar from "./components/layout/NavBar";
 import HomePage from "./pages/HomePage";
 import CompanyPage from "./pages/CompanyPage";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 function App() {
 	return (
-		<div className="min-w-80 min-h-screen">
-			{/* Your main content would go here */}
-			{/* <div className="min-h-screen min-w-80"> */}
-			<Navbar />
-			<HomePage />
-			{/* <CompanyPage /> */}
-			{/* </div> */}
-			<Footer />
-		</div>
+		<Router>
+			<div className="min-w-80 min-h-screen">
+				<Navbar />
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/company/:id" element={<CompanyPage />} />
+				</Routes>
+				<Footer />
+			</div>
+		</Router>
 	);
 }
 export default App;

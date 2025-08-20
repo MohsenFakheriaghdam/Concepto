@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 
-// Data (moved from script)
-const companyData = {
+// Default data (used if no data is passed from HomePage)
+const defaultCompanyData = {
 	name: "TechSolutions Inc.",
 	category: "Technology",
 	founded: 2010,
@@ -429,7 +430,7 @@ function Reviews() {
 	);
 }
 
-function AboutUs() {
+function AboutUs({ companyData }) {
 	const [openFAQ, setOpenFAQ] = useState(null);
 	return (
 		<>
@@ -504,11 +505,7 @@ function AboutUs() {
 						Our mission is to empower businesses through technology, offering cutting-edge software solutions, cloud services, and digital
 						transformation consulting. We specialize in:
 					</p>
-					<ul>
-						{companyData.details.map((detail, idx) => (
-							<li key={idx}>{detail}</li>
-						))}
-					</ul>
+					<ul>{companyData.details && companyData.details.map((detail, idx) => <li key={idx}>{detail}</li>)}</ul>
 					<p>{companyData.fullDescription}</p>
 				</div>
 			</div>
@@ -634,8 +631,12 @@ function Support() {
 }
 
 export default function CompanyPage() {
+	const location = useLocation();
 	const [activeTab, setActiveTab] = useState("about");
 	const [following, setFollowing] = useState(false);
+
+	// Use company data from location.state if available, otherwise fallback
+	const companyData = location.state?.company || defaultCompanyData;
 
 	const tabList = [
 		{ id: "about", label: "About Us" },
@@ -654,7 +655,11 @@ export default function CompanyPage() {
 				<header className="bg-white rounded-xl shadow-md overflow-hidden mb-8">
 					<div className="md:flex">
 						<div className="md:w-1/4 p-6 flex justify-center">
-							<img src="https://via.placeholder.com/300" alt="Company Logo" className="w-48 h-48 object-cover rounded-lg shadow-sm" />
+							<img
+								src={companyData.logo || "https://via.placeholder.com/300"}
+								alt="Company Logo"
+								className="w-48 h-48 object-cover rounded-lg shadow-sm"
+							/>
 						</div>
 						<div className="md:w-3/4 p-6">
 							<div className="flex flex-col h-full justify-between">
@@ -669,7 +674,7 @@ export default function CompanyPage() {
 									<div className="flex flex-wrap gap-4 mb-4">
 										<div className="flex items-center text-gray-600">
 											<i className="fas fa-map-marker-alt mr-2 text-blue-500"></i>
-											<span>San Francisco, CA</span>
+											<span>{companyData.location || companyData.headquarters || "Location"}</span>
 										</div>
 										<div className="flex items-center text-gray-600">
 											<i className="fas fa-globe mr-2 text-blue-500"></i>
@@ -683,7 +688,7 @@ export default function CompanyPage() {
 										</div>
 										<div className="flex items-center text-gray-600">
 											<i className="fas fa-star mr-2 text-blue-500"></i>
-											<span>4.8 (120 reviews)</span>
+											<span>{companyData.rating ? `${companyData.rating} (reviews)` : "4.8 (120 reviews)"}</span>
 										</div>
 									</div>
 								</div>
@@ -730,7 +735,7 @@ export default function CompanyPage() {
 
 				{/* Tab Content */}
 				<div className="tab-content-container">
-					{activeTab === "about" && <AboutUs />}
+					{activeTab === "about" && <AboutUs companyData={companyData} />}
 					{activeTab === "support" && <Support />}
 					{activeTab === "employees" && <Employees />}
 					{activeTab === "posts" && <Posts />}
