@@ -21,9 +21,9 @@ function Footer() {
 					<div className="space-y-4">
 						<h3 className="text-xl font-bold flex items-center">
 							<i className="fas fa-rocket mr-2"></i>
-							TechNova
+							تک‌نوا
 						</h3>
-						<p className="text-gray-200">Innovating the future, one solution at a time. We build digital experiences that matter.</p>
+						<p className="text-gray-200">نوآوری برای آینده، یک راه‌حل در هر زمان. ما تجربه‌های دیجیتال ارزشمند می‌سازیم.</p>
 						<div className="flex space-x-4 pt-2">
 							{["facebook", "twitter", "instagram", "linkedin"].map((social) => (
 								<a
@@ -40,9 +40,9 @@ function Footer() {
 
 					{/* Quick Links */}
 					<div>
-						<h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+						<h3 className="text-lg font-semibold mb-4">لینک‌های سریع</h3>
 						<ul className="space-y-2">
-							{["Home", "About", "Services", "Pricing", "Blog"].map((link) => (
+							{["خانه", "درباره ما", "خدمات", "قیمت‌گذاری", "بلاگ"].map((link) => (
 								<li key={link}>
 									<a href="#" className="footer-link text-gray-200 hover:text-white flex items-center">
 										<i className="fas fa-chevron-right text-xs mr-2"></i>
@@ -55,9 +55,9 @@ function Footer() {
 
 					{/* Services */}
 					<div>
-						<h3 className="text-lg font-semibold mb-4">Our Services</h3>
+						<h3 className="text-lg font-semibold mb-4">خدمات ما</h3>
 						<ul className="space-y-2">
-							{["Web Development", "Mobile Apps", "UI/UX Design", "Cloud Solutions", "Digital Marketing"].map((service) => (
+							{["توسعه وب", "اپلیکیشن موبایل", "طراحی UI/UX", "راهکارهای ابری", "بازاریابی دیجیتال"].map((service) => (
 								<li key={service}>
 									<a href="#" className="footer-link text-gray-200 hover:text-white flex items-center">
 										<i className="fas fa-check-circle text-xs mr-2"></i>
@@ -70,15 +70,15 @@ function Footer() {
 
 					{/* Newsletter */}
 					<div>
-						<h3 className="text-lg font-semibold mb-4">Newsletter</h3>
-						<p className="text-gray-200 mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+						<h3 className="text-lg font-semibold mb-4">خبرنامه</h3>
+						<p className="text-gray-200 mb-4">برای دریافت جدیدترین اخبار و پیشنهادها در خبرنامه ما عضو شوید.</p>
 						<form onSubmit={handleSubscribe} className="space-y-3">
 							<div className="relative">
 								<input
 									type="email"
 									value={email}
 									onChange={(e) => setEmail(e.target.value)}
-									placeholder="Your email address"
+									placeholder="ایمیل شما"
 									className="w-full px-4 py-2 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-300"
 									required
 								/>
@@ -89,11 +89,11 @@ function Footer() {
 									<i className="fas fa-paper-plane"></i>
 								</button>
 							</div>
-							{subscribed && <div className="bg-green-500 text-white px-3 py-2 rounded-md text-sm">Thank you for subscribing!</div>}
+							{subscribed && <div className="bg-green-500 text-white px-3 py-2 rounded-md text-sm">با تشکر از عضویت شما!</div>}
 						</form>
 						<div className="mt-4 flex items-center space-x-2">
 							<i className="fas fa-phone-alt"></i>
-							<span>+1 (555) 123-4567</span>
+							<span>۰۲۱-۱۲۳۴۵۶۷۸</span>
 						</div>
 						<div className="flex items-center space-x-2">
 							<i className="fas fa-envelope"></i>
@@ -103,16 +103,16 @@ function Footer() {
 				</div>
 
 				<div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-					<p className="text-gray-300 text-sm mb-4 md:mb-0">&copy; {new Date().getFullYear()} TechNova. All rights reserved.</p>
+					<p className="text-gray-300 text-sm mb-4 md:mb-0">&copy; {new Date().getFullYear()} تک‌نوا. کلیه حقوق محفوظ است.</p>
 					<div className="flex space-x-6">
 						<a href="#" className="text-gray-300 hover:text-white text-sm">
-							Privacy Policy
+							سیاست حفظ حریم خصوصی
 						</a>
 						<a href="#" className="text-gray-300 hover:text-white text-sm">
-							Terms of Service
+							شرایط استفاده
 						</a>
 						<a href="#" className="text-gray-300 hover:text-white text-sm">
-							Cookies Policy
+							سیاست کوکی‌ها
 						</a>
 					</div>
 				</div>

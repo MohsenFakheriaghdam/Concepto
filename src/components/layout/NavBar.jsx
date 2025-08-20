@@ -1,9 +1,12 @@
 import React from "react";
+
 import AuthModal from "./AuthModal";
+import { useNavigate } from "react-router-dom";
 
 const { useState, useEffect } = React;
 
 export default function Navbar() {
+	const navigate = useNavigate();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [searchQuery, setSearchQuery] = useState("");
@@ -39,53 +42,53 @@ export default function Navbar() {
 			}`}
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="flex justify-between h-16">
+				<div className="flex justify-between h-16 ">
 					{/* Logo and main nav */}
 					<div className="flex items-center">
-						<div className="flex-shrink-0 flex items-center">
+						<div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => navigate("/")} tabIndex={0}>
 							<i className="fas fa-cube text-indigo-600 text-2xl mr-2"></i>
-							<span className="text-xl font-bold text-gray-800">BrandName</span>
+							<span className="text-xl font-bold text-gray-800 ">برند</span>
 						</div>
-						<div className="hidden md:ml-10 lg:flex md:space-x-8">
+						<div className="hidden md:mr-10 lg:flex  md:space-x-reverse md:space-x-6 ">
+							<button
+								onClick={() => navigate("/")}
+								className="text-indigo-600 border-indigo-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium bg-transparent focus:outline-none"
+							>
+								خانه
+							</button>
+							{/* <a
+								href="#"
+								className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
+							>
+								محصولات
+							</a> */}
 							<a
 								href="#"
-								className="text-indigo-600 border-indigo-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+								className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
 							>
-								Home
+								خدمات
 							</a>
 							<a
 								href="#"
 								className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
 							>
-								Products
+								درباره ما
 							</a>
 							<a
 								href="#"
 								className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
 							>
-								Services
-							</a>
-							<a
-								href="#"
-								className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
-							>
-								About
-							</a>
-							<a
-								href="#"
-								className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
-							>
-								Contact
+								تماس
 							</a>
 						</div>
 					</div>
 
 					{/* Search and buttons */}
-					<div className="hidden lg:flex items-center space-x-4">
+					<div className="hidden lg:flex items-center md:space-x-reverse md:space-x-5">
 						<form onSubmit={handleSearch} className="relative">
 							<input
 								type="text"
-								placeholder="Search..."
+								placeholder="جستجو..."
 								className="search-input bg-gray-100 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-40"
 								value={searchQuery}
 								onChange={(e) => setSearchQuery(e.target.value)}
@@ -103,7 +106,7 @@ export default function Navbar() {
 								onClick={() => setIsAuthOpen(true)}
 								className="px-4 py-2 rounded-md text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 transition-colors shadow-sm"
 							>
-								Sign Up / Log In
+								ثبت‌نام / ورود
 							</button>
 						</div>
 					</div>
@@ -127,7 +130,7 @@ export default function Navbar() {
 					<form onSubmit={handleSearch} className="relative mb-4">
 						<input
 							type="text"
-							placeholder="Search..."
+							placeholder="جستجو..."
 							className="search-input bg-gray-100 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
 							value={searchQuery}
 							onChange={(e) => setSearchQuery(e.target.value)}
@@ -137,20 +140,26 @@ export default function Navbar() {
 						</button>
 					</form>
 
-					<a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-indigo-600 bg-indigo-50">
-						Home
+					<button
+						onClick={() => {
+							setIsMenuOpen(false);
+							navigate("/");
+						}}
+						className="block px-3 py-2 rounded-md text-base font-medium text-indigo-600 bg-indigo-50 w-full text-right bg-transparent focus:outline-none"
+					>
+						خانه
+					</button>
+					{/* <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-50">
+						محصولات
+					</a> */}
+					<a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-50">
+						خدمات
 					</a>
 					<a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-50">
-						Products
+						درباره ما
 					</a>
 					<a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-50">
-						Services
-					</a>
-					<a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-50">
-						About
-					</a>
-					<a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-50">
-						Contact
+						تماس
 					</a>
 
 					<div className="pt-4 border-t border-gray-200">
@@ -158,7 +167,7 @@ export default function Navbar() {
 							onClick={() => setIsAuthOpen(true)}
 							className="w-full px-4 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm"
 						>
-							Log In / Sign Up
+							ورود / ثبت‌نام
 						</button>
 					</div>
 				</div>

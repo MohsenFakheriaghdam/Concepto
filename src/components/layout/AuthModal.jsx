@@ -39,16 +39,16 @@ export default function AuthModal({ isOpen, onClose }) {
 
 	const validateForm = () => {
 		const newErrors = {};
-		if (!formData.email) newErrors.email = "Email is required";
-		else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Please enter a valid email";
+		if (!formData.email) newErrors.email = "ایمیل الزامی است";
+		else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "لطفاً یک ایمیل معتبر وارد کنید";
 
-		if (!formData.password) newErrors.password = "Password is required";
-		else if (formData.password.length < 6) newErrors.password = "Password must be at least 6 characters";
+		if (!formData.password) newErrors.password = "رمز عبور الزامی است";
+		else if (formData.password.length < 6) newErrors.password = "رمز عبور باید حداقل ۶ کاراکتر باشد";
 
 		if (!isLogin) {
-			if (!formData.name) newErrors.name = "Name is required";
-			if (!formData.confirmPassword) newErrors.confirmPassword = "Please confirm your password";
-			else if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = "Passwords do not match";
+			if (!formData.name) newErrors.name = "نام الزامی است";
+			if (!formData.confirmPassword) newErrors.confirmPassword = "تکرار رمز عبور الزامی است";
+			else if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = "رمزهای عبور مطابقت ندارند";
 		}
 
 		setErrors(newErrors);
@@ -71,13 +71,13 @@ export default function AuthModal({ isOpen, onClose }) {
 		setTimeout(() => {
 			setIsLoading(false);
 			if (isLogin) {
-				setSuccessMessage("Login successful! Redirecting...");
+				setSuccessMessage("ورود موفقیت‌آمیز بود! در حال انتقال ...");
 				setTimeout(() => {
 					onClose();
 					setSuccessMessage("");
 				}, 1200);
 			} else {
-				setSuccessMessage("Account created successfully! You can now login.");
+				setSuccessMessage("حساب کاربری با موفقیت ایجاد شد! اکنون می‌توانید وارد شوید.");
 				setIsLogin(true);
 				setFormData({ name: "", email: "", password: "", confirmPassword: "" });
 			}
@@ -92,22 +92,19 @@ export default function AuthModal({ isOpen, onClose }) {
 	};
 
 	const modal = (
-		// پس‌زمینه: همیشه روی همه (z-[1000]) + محو/بلور
 		<div
 			className="fixed inset-0 z-[1000] grid place-items-center p-4 sm:p-6 bg-black/50 backdrop-blur-sm"
 			role="dialog"
 			aria-modal="true"
 			onClick={(e) => {
 				if (e.target === e.currentTarget) onClose();
-			}} // کلیک بیرون
+			}}
 		>
-			{/* خود پنل: ارتفاع حداکثر = 90vh و اسکرول داخلی */}
 			<div className="w-full max-w-md rounded-2xl bg-white shadow-2xl overflow-hidden max-h-[90vh]">
-				{/* محتوا اسکرول‌پذیر */}
 				<div className="max-h-[90vh] overflow-y-auto">
 					<div className="p-4 sm:p-6">
 						<div className="flex justify-between items-center mb-6">
-							<h2 className="text-xl sm:text-2xl font-bold text-gray-800">{isLogin ? "Login" : "Create Account"}</h2>
+							<h2 className="text-xl sm:text-2xl font-bold text-gray-800">{isLogin ? "ورود" : "ایجاد حساب کاربری"}</h2>
 							<button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition">
 								<i className="fas fa-times text-xl" />
 							</button>
@@ -121,7 +118,7 @@ export default function AuthModal({ isOpen, onClose }) {
 									isLogin ? "bg-indigo-600 text-white" : "text-gray-600 hover:text-gray-800"
 								}`}
 							>
-								Login
+								ورود
 							</button>
 							<button
 								onClick={() => setIsLogin(false)}
@@ -129,7 +126,7 @@ export default function AuthModal({ isOpen, onClose }) {
 									!isLogin ? "bg-indigo-600 text-white" : "text-gray-600 hover:text-gray-800"
 								}`}
 							>
-								Sign Up
+								ثبت‌ نام
 							</button>
 						</div>
 
@@ -140,7 +137,7 @@ export default function AuthModal({ isOpen, onClose }) {
 							{!isLogin && (
 								<div className="mb-4">
 									<label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-										Full Name
+										نام کامل
 									</label>
 									<div className="relative">
 										<input
@@ -152,9 +149,9 @@ export default function AuthModal({ isOpen, onClose }) {
 											className={`w-full px-4 py-3 text-sm sm:text-base border rounded-lg ${
 												errors.name ? "border-red-500" : "border-gray-300"
 											}`}
-											placeholder="John Doe"
+											placeholder="نام و نام خانوادگی"
 										/>
-										<div className="absolute right-3 top-3 text-gray-400">
+										<div className="absolute left-3 top-3 text-gray-400">
 											<i className="fas fa-user" />
 										</div>
 									</div>
@@ -164,7 +161,7 @@ export default function AuthModal({ isOpen, onClose }) {
 
 							<div className="mb-4">
 								<label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-									Email Address
+									ایمیل
 								</label>
 								<div className="relative">
 									<input
@@ -174,9 +171,9 @@ export default function AuthModal({ isOpen, onClose }) {
 										value={formData.email}
 										onChange={handleChange}
 										className={`w-full px-4 py-2 border rounded-lg ${errors.email ? "border-red-500" : "border-gray-300"}`}
-										placeholder="your@email.com"
+										placeholder="ایمیل شما"
 									/>
-									<div className="absolute right-3 top-3 text-gray-400">
+									<div className="absolute left-3 top-3 text-gray-400">
 										<i className="fas fa-envelope" />
 									</div>
 								</div>
@@ -185,7 +182,7 @@ export default function AuthModal({ isOpen, onClose }) {
 
 							<div className="mb-4">
 								<label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-									Password
+									رمز عبور
 								</label>
 								<div className="relative">
 									<input
@@ -200,7 +197,7 @@ export default function AuthModal({ isOpen, onClose }) {
 									<button
 										type="button"
 										onClick={() => setShowPassword((v) => !v)}
-										className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+										className="absolute left-3 top-3 text-gray-400 hover:text-gray-600"
 									>
 										<i className={`fas ${showPassword ? "fa-eye-slash" : "fa-eye"}`} />
 									</button>
@@ -211,7 +208,7 @@ export default function AuthModal({ isOpen, onClose }) {
 							{!isLogin && (
 								<div className="mb-6">
 									<label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
-										Confirm Password
+										تکرار رمز عبور
 									</label>
 									<div className="relative">
 										<input
@@ -228,7 +225,7 @@ export default function AuthModal({ isOpen, onClose }) {
 										<button
 											type="button"
 											onClick={() => setShowConfirmPassword((v) => !v)}
-											className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+											className="absolute left-3 top-3 text-gray-400 hover:text-gray-600"
 										>
 											<i className={`fas ${showConfirmPassword ? "fa-eye-slash" : "fa-eye"}`} />
 										</button>
@@ -241,10 +238,10 @@ export default function AuthModal({ isOpen, onClose }) {
 								<div className="flex items-center justify-between mb-6">
 									<label className="flex items-center gap-2 text-sm text-gray-700">
 										<input type="checkbox" className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" />
-										Remember me
+										مرا به خاطر بسپار
 									</label>
 									<a href="#" className="text-sm text-indigo-600 hover:text-indigo-500">
-										Forgot password?
+										رمز عبور را فراموش کرده‌اید؟
 									</a>
 								</div>
 							)}
@@ -269,12 +266,12 @@ export default function AuthModal({ isOpen, onClose }) {
 												d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
 											/>
 										</svg>
-										{isLogin ? "Logging in..." : "Creating account..."}
+										{isLogin ? "در حال ورود..." : "در حال ایجاد حساب..."}
 									</>
 								) : isLogin ? (
-									"Login"
+									"ورود"
 								) : (
-									"Sign Up"
+									"ثبت‌نام"
 								)}
 							</button>
 						</form>
@@ -282,9 +279,9 @@ export default function AuthModal({ isOpen, onClose }) {
 
 					<div className="bg-gray-50 px-4 sm:px-6 py-4 border-t border-gray-200">
 						<p className="text-sm text-gray-600 text-center">
-							{isLogin ? "Don't have an account? " : "Already have an account? "}
+							{isLogin ? "حساب کاربری ندارید؟ " : "قبلاً حساب ساخته‌اید؟ "}
 							<button onClick={toggleAuthMode} className="font-medium text-indigo-600 hover:text-indigo-500">
-								{isLogin ? "Sign up" : "Login"}
+								{isLogin ? "ثبت‌نام" : "ورود"}
 							</button>
 						</p>
 					</div>

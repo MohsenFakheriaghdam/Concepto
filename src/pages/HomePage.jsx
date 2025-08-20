@@ -5,32 +5,21 @@ const { useState, useEffect } = React;
 
 export default function HomePage() {
 	const [stats, setStats] = useState([
-		{ value: 1245, label: "Active Companies", icon: "building" },
-		{ value: 328, label: "Total Investment ($M)", icon: "money-bill-wave" },
-		{ value: 8560, label: "Investors", icon: "users" },
+		{ value: 1245, label: "شرکت‌های فعال", icon: "building" },
+		{ value: 328, label: "کل سرمایه‌گذاری (میلیون )", icon: "money-bill-wave" },
+		{ value: 8560, label: "سرمایه‌گذاران", icon: "users" },
 	]);
 
-	const categories = [
-		"Technology",
-		"Finance",
-		"Healthcare",
-		"E-commerce",
-		"Education",
-		"Transportation",
-		"Blockchain",
-		"Renewable Energy",
-		"Food & Beverage",
-		"Entertainment",
-	];
+	const categories = ["فناوری", "مالی", "سلامت", "تجارت الکترونیک", "آموزش", "حمل و نقل", "بلاک‌چین", "انرژی تجدیدپذیر", "غذا و نوشیدنی", "سرگرمی"];
 
 	const popularCompanies = [
 		{
 			id: 1,
 			name: "Snap",
-			category: "E-commerce",
+			category: "تجارت الکترونیک",
 			followers: 1245,
 			investors: 86,
-			description: "From requesting a ride to ordering food and grocery shopping, you can do it all with the Snapp super app",
+			description: "از درخواست تاکسی تا سفارش غذا و خرید سوپرمارکتی، همه را با سوپراپ اسنپ انجام دهید",
 			location: "Iran, Tehran",
 			rating: 4.8,
 			logo: "/image/snaplogo.jpg",
@@ -38,11 +27,11 @@ export default function HomePage() {
 		{
 			id: 2,
 			name: "Digikala",
-			category: "E-commerce",
+			category: "تجارت الکترونیک",
 			followers: 1000,
 			investors: 45,
 			description:
-				"Buy everything you need at the best price from Digikala! The latest mobile phones, laptops, clothing, cosmetics and personal care products, books, home appliances, cars, and more",
+				"هر آنچه نیاز دارید با بهترین قیمت از دیجی‌کالا بخرید! جدیدترین موبایل‌ها، لپ‌تاپ‌ها، پوشاک، لوازم آرایشی و بهداشتی، کتاب، لوازم خانگی، خودرو و ...",
 			location: "Iran, Tehran",
 			rating: 4.6,
 			logo: "/image/cropped-Site-Icon.jpg",
@@ -50,11 +39,10 @@ export default function HomePage() {
 		{
 			id: 3,
 			name: "Alibaba",
-			category: "E-commerce",
+			category: "تجارت الکترونیک",
 			followers: 1560,
 			investors: 112,
-			description:
-				"Flight ticket booking with Alibaba: the most experienced and trusted platform for reserving flight tickets and purchasing charter and system airline tickets, as well as train and bus tickets online",
+			description: "خرید بلیت هواپیما با علی‌بابا: معتبرترین و باتجربه‌ترین سامانه رزرو بلیت پرواز، قطار و اتوبوس به صورت آنلاین",
 			location: "Iran, Tehran",
 			rating: 4.9,
 			logo: "/image/alibaba.jpg",
@@ -62,11 +50,11 @@ export default function HomePage() {
 		{
 			id: 4,
 			name: "Iranserver",
-			category: "E-commerce",
+			category: "تجارت الکترونیک",
 			followers: 876,
 			investors: 34,
 			description:
-				"IranServer’s personal templates are a very smart choice for launching a personal website, portfolio, or individual résumé. They include custom domain registration, personal name SEO, integration with social networks, and more",
+				"قالب‌های شخصی ایران‌سرور انتخابی هوشمندانه برای راه‌اندازی سایت شخصی، نمونه‌کار یا رزومه است. شامل دامنه اختصاصی، سئو نام، اتصال به شبکه‌های اجتماعی و ...",
 			location: "Iran, Tehran",
 			rating: 4.5,
 			logo: "/image/iranserver.jpg",
@@ -74,11 +62,11 @@ export default function HomePage() {
 		{
 			id: 5,
 			name: " RTL Theme",
-			category: "E-commerce",
+			category: "تجارت الکترونیک",
 			followers: 2045,
 			investors: 156,
 			description:
-				"The first legal source for purchasing and downloading commercial (original) WordPress themes and templates, with free installation, support, and quality guarantee — RTL Theme®, RTL WordPress Themes",
+				"اولین مرجع قانونی خرید و دانلود قالب و افزونه وردپرس اورجینال با نصب رایگان، پشتیبانی و تضمین کیفیت — RTL Theme®، قالب‌های وردپرس RTL",
 			location: "Iran, Tehran",
 			rating: 4.7,
 			logo: "/image/604U4zrw_400x400.jpg",
@@ -98,23 +86,23 @@ export default function HomePage() {
 	const newsAndEvents = [
 		{
 			id: 1,
-			title: "Annual Startup Summit 2023",
-			date: "June 15, 2023",
-			description: "Join the biggest gathering of innovators and investors this year",
+			title: "اجلاس سالانه استارتاپ‌ها ۲۰۲۳",
+			date: "۱۵ ژوئن ۲۰۲۳",
+			description: "در بزرگترین گردهمایی نوآوران و سرمایه‌گذاران امسال شرکت کنید",
 			image: "https://via.placeholder.com/300x200",
 		},
 		{
 			id: 2,
-			title: "New Funding Opportunities",
-			date: "May 28, 2023",
-			description: "Government announces $50M fund for green technology startups",
+			title: "فرصت‌های جدید سرمایه‌گذاری",
+			date: "۲۸ مه ۲۰۲۳",
+			description: "دولت صندوق ۵۰ میلیون دلاری برای استارتاپ‌های فناوری سبز اعلام کرد",
 			image: "https://via.placeholder.com/300x200",
 		},
 		{
 			id: 3,
-			title: "TechNova Wins Innovation Award",
-			date: "May 15, 2023",
-			description: "Recognized for breakthrough AI technology in healthcare",
+			title: "تک‌نوا برنده جایزه نوآوری شد",
+			date: "۱۵ مه ۲۰۲۳",
+			description: "تقدیر برای فناوری نوآورانه هوش مصنوعی در حوزه سلامت",
 			image: "https://via.placeholder.com/300x200",
 		},
 	];
@@ -133,10 +121,8 @@ export default function HomePage() {
 			{/* gradient-bg */}
 			<div className="bg-gray-100 text-[#0F1557] py-20 px-4 sm:px-6 lg:px-8 h-[500px] flex items-center justify-center">
 				<div className="max-w-7xl mx-auto text-center">
-					<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">Smarter Search, Better Results</h1>
-					<p className="text-xl sm:text-2xl opacity-90">
-						Concepto is the first authoritative reference for introducing Iranian startups and companies
-					</p>
+					<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">جستجوی هوشمند، نتایج بهتر</h1>
+					<p className="text-xl sm:text-2xl opacity-90">کانسپتو اولین مرجع معتبر برای معرفی استارتاپ‌ها و شرکت‌های ایرانی است</p>
 				</div>
 			</div>
 
@@ -157,7 +143,7 @@ export default function HomePage() {
 
 			{/* Categories Section */}
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-gray-50">
-				<h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">Browse by Category</h2>
+				<h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">مرور بر اساس دسته‌بندی</h2>
 				<div className="flex flex-wrap justify-center gap-3">
 					{categories.map((category, index) => (
 						<button
@@ -176,14 +162,14 @@ export default function HomePage() {
 			{/* Popular Companies Section */}
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 				<div className="flex justify-between items-center mb-8">
-					<h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Popular Companies</h2>
+					<h2 className="text-2xl sm:text-3xl font-bold text-gray-900">شرکت‌های محبوب</h2>
 					<a href="#" className="text-indigo-600 hover:text-indigo-800 font-medium">
-						View All
+						مشاهده همه
 					</a>
 				</div>
 				<div className="relative">
 					<div className="scroll-container overflow-x-auto pb-4">
-						<div className="flex space-x-6" style={{ minWidth: `${popularCompanies.length * 320}px` }}>
+						<div className="flex md:space-x-reverse md:space-x-6 max-md:gap-6" style={{ minWidth: `${popularCompanies.length * 320}px` }}>
 							{popularCompanies.map((company) => (
 								<button
 									key={company.id}
@@ -192,33 +178,33 @@ export default function HomePage() {
 									tabIndex={0}
 									style={{ cursor: "pointer" }}
 								>
-									<div className="p-6">
-										<div className="flex items-center mb-4">
+									<div className="p-6 bg-slate-50 h-72 flex flex-col justify-center">
+										<div className="flex items-center justify-between mb-4">
 											<img src={company.logo} alt={company.name} className="w-16 h-16 rounded-full object-cover mr-4" />
 											<div>
 												<h3 className="font-bold text-lg">{company.name}</h3>
 												<span className="text-sm text-gray-500">{company.category}</span>
 											</div>
 										</div>
-										<p className="text-gray-500 mb-4  line-clamp-2">{company.description}</p>
+										<p className="text-gray-500 mb-4  line-clamp-2 text-right">{company.description}</p>
 										<div className="flex justify-between text-sm mb-4">
 											<div>
+												<span className="text-gray-500 ml-1">دنبال‌کننده</span>
 												<span className="font-medium">{company.followers.toLocaleString()}</span>
-												<span className="text-gray-500 ml-1">followers</span>
 											</div>
 											<div>
+												<span className="text-gray-500 ml-1">سرمایه‌گذار</span>
 												<span className="font-medium">{company.investors}</span>
-												<span className="text-gray-500 ml-1">investors</span>
 											</div>
 										</div>
 										<div className="flex justify-between items-center">
 											<div className="text-gray-500 text-sm">
-												<i className="fas fa-map-marker-alt mr-1"></i>
 												{company.location}
+												<i className="fas fa-map-marker-alt mr-1"></i>
 											</div>
 											<div className="flex items-center bg-indigo-100 text-indigo-800 px-2 py-1 rounded">
-												<i className="fas fa-star mr-1"></i>
 												{company.rating}
+												<i className="fas fa-star mr-1"></i>
 											</div>
 										</div>
 									</div>
@@ -233,9 +219,9 @@ export default function HomePage() {
 			{/* Job Opportunities Section */}
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-gray-50">
 				<div className="flex justify-between items-center mb-8">
-					<h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Job Opportunities</h2>
+					<h2 className="text-2xl sm:text-3xl font-bold text-gray-900">فرصت‌های شغلی</h2>
 					<a href="#" className="text-indigo-600 hover:text-indigo-800 font-medium">
-						View All
+						مشاهده همه
 					</a>
 				</div>
 				<div className="relative">
@@ -249,7 +235,7 @@ export default function HomePage() {
 									<img src={job.logo} alt={job.company} className="w-16 h-16 rounded-full object-cover mx-auto mb-3" />
 									<h3 className="font-medium text-gray-900 mb-1">{job.company}</h3>
 									<div className="bg-indigo-100 text-indigo-800 rounded-full py-1 px-3 text-sm inline-block">
-										{job.positions} positions
+										{job.positions} موقعیت
 									</div>
 								</div>
 							))}
@@ -260,7 +246,7 @@ export default function HomePage() {
 
 			{/* News & Events Section */}
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-				<h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">Latest News & Events</h2>
+				<h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">آخرین اخبار و رویدادها</h2>
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 					{newsAndEvents.map((item) => (
 						<div key={item.id} className="bg-white rounded-xl shadow-md overflow-hidden">
@@ -270,7 +256,7 @@ export default function HomePage() {
 								<h3 className="font-bold text-xl mb-2">{item.title}</h3>
 								<p className="text-gray-600">{item.description}</p>
 								<a href="#" className="inline-block mt-4 text-indigo-600 hover:text-indigo-800 font-medium">
-									Read More
+									ادامه مطلب
 								</a>
 							</div>
 						</div>
