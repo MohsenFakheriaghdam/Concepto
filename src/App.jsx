@@ -5,6 +5,7 @@
 import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/NavBar";
 import HomePage from "./pages/HomePage";
+import CompanyPage from "./pages/CompanyPage";
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 			{/* <div className="min-h-screen min-w-80"> */}
 			<Navbar />
 			<HomePage />
+			{/* <CompanyPage /> */}
 			{/* </div> */}
 			<Footer />
 		</div>
