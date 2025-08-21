@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
 	const [email, setEmail] = React.useState("");
@@ -20,11 +21,11 @@ function Footer() {
 					{/* Company Info */}
 					<div className="space-y-4">
 						<h3 className="text-xl font-bold flex items-center">
-							<i className="fas fa-rocket mr-2"></i>
-							تک‌نوا
+							<i className="fas fa-rocket ml-2"></i>
+							کانسپتو
 						</h3>
 						<p className="text-gray-200">نوآوری برای آینده، یک راه‌حل در هر زمان. ما تجربه‌های دیجیتال ارزشمند می‌سازیم.</p>
-						<div className="flex space-x-4 pt-2">
+						<div className="flex md:space-x-reverse md:space-x-6 pt-2 max-md:gap-4">
 							{["facebook", "twitter", "instagram", "linkedin"].map((social) => (
 								<a
 									key={social}
@@ -44,10 +45,17 @@ function Footer() {
 						<ul className="space-y-2">
 							{["خانه", "درباره ما", "خدمات", "قیمت‌گذاری", "بلاگ"].map((link) => (
 								<li key={link}>
-									<a href="#" className="footer-link text-gray-200 hover:text-white flex items-center">
-										<i className="fas fa-chevron-right text-xs mr-2"></i>
-										{link}
-									</a>
+									{link === "خانه" ? (
+										<Link to="/" className="footer-link text-gray-200 hover:text-white flex items-center">
+											<i className="fas fa-chevron-right text-xs mr-2"></i>
+											{link}
+										</Link>
+									) : (
+										<a href="#" className="footer-link text-gray-200 hover:text-white flex items-center">
+											<i className="fas fa-chevron-right text-xs mr-2"></i>
+											{link}
+										</a>
+									)}
 								</li>
 							))}
 						</ul>
@@ -60,7 +68,7 @@ function Footer() {
 							{["توسعه وب", "اپلیکیشن موبایل", "طراحی UI/UX", "راهکارهای ابری", "بازاریابی دیجیتال"].map((service) => (
 								<li key={service}>
 									<a href="#" className="footer-link text-gray-200 hover:text-white flex items-center">
-										<i className="fas fa-check-circle text-xs mr-2"></i>
+										<i className="fas fa-check-circle text-xs ml-2"></i>
 										{service}
 									</a>
 								</li>
@@ -84,26 +92,26 @@ function Footer() {
 								/>
 								<button
 									type="submit"
-									className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-md text-sm transition-colors duration-300"
+									className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white px-3 py-1 rounded-md text-sm transition-colors duration-300"
 								>
 									<i className="fas fa-paper-plane"></i>
 								</button>
 							</div>
 							{subscribed && <div className="bg-green-500 text-white px-3 py-2 rounded-md text-sm">با تشکر از عضویت شما!</div>}
 						</form>
-						<div className="mt-4 flex items-center space-x-2">
+						<div className="mt-4 flex items-center md:space-x-reverse md:space-x-2 max-md:gap-2">
 							<i className="fas fa-phone-alt"></i>
-							<span>۰۲۱-۱۲۳۴۵۶۷۸</span>
+							<span>09142425473</span>
 						</div>
-						<div className="flex items-center space-x-2">
+						<div className="flex items-center md:space-x-reverse md:space-x-2 max-md:gap-2">
 							<i className="fas fa-envelope"></i>
-							<span>info@technova.com</span>
+							<span>mohen.6ix.ca@gmail.com</span>
 						</div>
 					</div>
 				</div>
 
 				<div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-					<p className="text-gray-300 text-sm mb-4 md:mb-0">&copy; {new Date().getFullYear()} تک‌نوا. کلیه حقوق محفوظ است.</p>
+					<p className="text-gray-300 text-sm mb-4 md:mb-0">&copy; {new Date().getFullYear()} کانسپتو کلیه حقوق محفوظ است</p>
 					<div className="flex space-x-6">
 						<a href="#" className="text-gray-300 hover:text-white text-sm">
 							سیاست حفظ حریم خصوصی
@@ -112,7 +120,7 @@ function Footer() {
 							شرایط استفاده
 						</a>
 						<a href="#" className="text-gray-300 hover:text-white text-sm">
-							سیاست کوکی‌ها
+							محسن فاخری اقدم
 						</a>
 					</div>
 				</div>
