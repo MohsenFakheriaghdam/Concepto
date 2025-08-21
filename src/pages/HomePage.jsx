@@ -180,11 +180,11 @@ export default function HomePage() {
 								>
 									<div className="p-6 bg-slate-50 h-72 flex flex-col justify-center">
 										<div className="flex items-center justify-between mb-4">
-											<img src={company.logo} alt={company.name} className="w-16 h-16 rounded-full object-cover mr-4" />
 											<div>
-												<h3 className="font-bold text-lg">{company.name}</h3>
+												<h3 className="font-bold text-right">{company.name}</h3>
 												<span className="text-sm text-gray-500">{company.category}</span>
 											</div>
+											<img src={company.logo} alt={company.name} className="w-16 h-16 rounded-full object-cover mr-4" />
 										</div>
 										<p className="text-gray-500 mb-4  line-clamp-2 text-right">{company.description}</p>
 										<div className="flex justify-between text-sm mb-4">
@@ -226,7 +226,10 @@ export default function HomePage() {
 				</div>
 				<div className="relative">
 					<div className="scroll-container overflow-x-auto pb-4">
-						<div className="flex space-x-6" style={{ minWidth: `${jobOpportunities.length * 160}px` }}>
+						<div
+							className="flex  md:space-x-reverse md:space-x-6 max-md:gap-6"
+							style={{ minWidth: `${jobOpportunities.length * 160}px` }}
+						>
 							{jobOpportunities.map((job) => (
 								<div
 									key={job.id}
