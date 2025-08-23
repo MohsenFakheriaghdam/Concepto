@@ -236,6 +236,7 @@ function TabButton({ label, active, onClick }) {
 			className={`tab-btn py-4 px-2 md:px-4 font-medium text-sm md:text-base border-b-2 border-transparent hover:text-blue-600 hover:border-blue-300 transition ${
 				active ? "active border-blue-600 text-blue-600" : ""
 			}`}
+			style={{ whiteSpace: "nowrap" }}
 			onClick={onClick}
 			type="button"
 		>
@@ -417,6 +418,7 @@ function AboutUs({ companyData }) {
 	const [openFAQ, setOpenFAQ] = useState(null);
 	return (
 		<>
+			{/* //! */}
 			{/* Company Summary */}
 			<div className="bg-white rounded-xl shadow-sm p-6 mb-6">
 				<h2 className="text-2xl font-bold text-gray-800 mb-4">خلاصه شرکت</h2>
@@ -427,7 +429,11 @@ function AboutUs({ companyData }) {
 						</div>
 						<div>
 							<h3 className="font-semibold text-gray-800">تأسیس</h3>
-							<p className="text-gray-600">{companyData.founded}</p>
+							<p className="text-gray-600">
+								{typeof companyData.founded === "string" && companyData.founded.includes("T")
+									? new Date(companyData.founded).getFullYear()
+									: companyData.founded}
+							</p>
 						</div>
 					</div>
 					<div className="flex items-start">
@@ -512,13 +518,13 @@ function Support() {
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 				<div className="bg-gray-50 p-6 rounded-lg">
 					<div className="flex items-center mb-4">
-						<div className="bg-blue-100 p-3 rounded-lg mr-4">
+						<div className="bg-blue-100 p-3 rounded-lg ml-4">
 							<i className="fas fa-headset text-blue-600"></i>
 						</div>
 						<h3 className="text-xl font-semibold text-gray-800">پشتیبانی مشتریان</h3>
 					</div>
 					<p className="text-gray-600 mb-4">تیم پشتیبانی ما آماده پاسخگویی به سوالات و مشکلات شماست.</p>
-					<div className="space-y-3">
+					<div className=" md:space-x-reverse md:space-y-3">
 						<div className="flex items-center">
 							<i className="fas fa-phone-alt text-blue-500 mr-3"></i>
 							<span className="text-gray-700">+1 (555) 123-4567</span>
@@ -535,7 +541,7 @@ function Support() {
 				</div>
 				<div className="bg-gray-50 p-6 rounded-lg">
 					<div className="flex items-center mb-4">
-						<div className="bg-blue-100 p-3 rounded-lg mr-4">
+						<div className="bg-blue-100 p-3 rounded-lg ml-4">
 							<i className="fas fa-book text-blue-600"></i>
 						</div>
 						<h3 className="text-xl font-semibold text-gray-800">پایگاه دانش</h3>
@@ -633,7 +639,7 @@ export default function CompanyPage() {
 		<div className="bg-gray-50 font-sans min-h-screen">
 			<div className="container mx-auto px-4 py-8 max-w-6xl">
 				{/* Header Section */}
-				<header className="bg-white rounded-xl shadow-md overflow-hidden mb-8">
+				<header className=" bg-white rounded-xl shadow-md overflow-hidden mb-8">
 					<div className="md:flex">
 						<div className="md:w-1/4 p-6 flex justify-center">
 							<img
@@ -647,7 +653,7 @@ export default function CompanyPage() {
 								<div>
 									<div className="flex items-center mb-2">
 										<h1 className="text-3xl font-bold text-gray-800">{companyData.name}</h1>
-										<span className="ml-4 px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
+										<span className="mr-4 px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">
 											{companyData.category}
 										</span>
 									</div>
@@ -706,7 +712,7 @@ export default function CompanyPage() {
 				{/* Tabs Navigation */}
 				<div className="bg-white rounded-xl shadow-sm overflow-hidden mb-8">
 					<div className="overflow-x-auto">
-						<nav className="flex space-x-1 md:space-x-4 px-4">
+						<nav className="flex flex-nowrap md:space-x-reverse md:space-x-4 px-4" style={{ whiteSpace: "nowrap" }}>
 							{tabList.map((tab) => (
 								<TabButton key={tab.id} label={tab.label} active={activeTab === tab.id} onClick={() => setActiveTab(tab.id)} />
 							))}

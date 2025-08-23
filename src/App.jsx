@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
 	return (
 		<Router>
-			<div className="min-w-80 min-h-screen">
+			<div className="min-w-80 min-h-screen ">
 				<Navbar />
 				<Routes>
 					<Route path="/" element={<HomePage />} />

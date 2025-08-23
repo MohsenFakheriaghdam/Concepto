@@ -10,6 +10,19 @@ export default function HomePage() {
 		{ value: 8560, label: "سرمایه‌گذاران", icon: "users" },
 	]);
 
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setStats((prevStats) =>
+				prevStats.map((stat) => ({
+					...stat,
+					value: stat.value + Math.floor(Math.random() * 10 - 5), // تغییر تصادفی
+				}))
+			);
+		}, 2000); // هر ۵ ثانیه
+
+		return () => clearInterval(interval);
+	}, []);
+
 	const categories = ["فناوری", "مالی", "سلامت", "تجارت الکترونیک", "آموزش", "حمل و نقل", "بلاک‌چین", "انرژی تجدیدپذیر", "غذا و نوشیدنی", "سرگرمی"];
 
 	const popularCompanies = [
@@ -23,6 +36,7 @@ export default function HomePage() {
 			location: "Iran, Tehran",
 			rating: 4.8,
 			logo: "/image/snaplogo.jpg",
+			founded: new Date("2014-01-01").toISOString(),
 		},
 		{
 			id: 2,
@@ -35,6 +49,7 @@ export default function HomePage() {
 			location: "Iran, Tehran",
 			rating: 4.6,
 			logo: "/image/cropped-Site-Icon.jpg",
+			founded: new Date("2006-01-01").toISOString(),
 		},
 		{
 			id: 3,
@@ -46,6 +61,7 @@ export default function HomePage() {
 			location: "Iran, Tehran",
 			rating: 4.9,
 			logo: "/image/alibaba.jpg",
+			founded: new Date("2014-01-01").toISOString(),
 		},
 		{
 			id: 4,
@@ -58,6 +74,7 @@ export default function HomePage() {
 			location: "Iran, Tehran",
 			rating: 4.5,
 			logo: "/image/iranserver.jpg",
+			founded: new Date("2010-01-01").toISOString(),
 		},
 		{
 			id: 5,
@@ -70,6 +87,7 @@ export default function HomePage() {
 			location: "Iran, Tehran",
 			rating: 4.7,
 			logo: "/image/604U4zrw_400x400.jpg",
+			founded: new Date("2017-01-01").toISOString(),
 		},
 	];
 
@@ -110,16 +128,17 @@ export default function HomePage() {
 	const [activeCategory, setActiveCategory] = useState("All");
 
 	const navigate = useNavigate();
-
+	// !
 	const handleCompanyClick = (company) => {
-		navigate(`/company/${company.id}`, { state: { company } });
+		// Pass founded explicitly (though company already contains it)
+		navigate(`/company/${company.id}`, { state: { company: { ...company, founded: company.founded } } });
 	};
 
 	return (
 		<div className="min-h-screen ">
 			{/* Hero Section */}
 			{/* gradient-bg */}
-			<div className="bg-gray-100 text-[#0F1557] py-20 px-4 sm:px-6 lg:px-8 h-[500px] flex items-center justify-center">
+			<div className="gradient-bg  text-white py-20 px-4 sm:px-6 lg:px-8 h-[500px] flex items-center justify-center">
 				<div className="max-w-7xl mx-auto text-center">
 					<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">جستجوی هوشمند، نتایج بهتر</h1>
 					<p className="text-xl sm:text-2xl opacity-90">کانسپتو اولین مرجع معتبر برای معرفی استارتاپ‌ها و شرکت‌های ایرانی است</p>
@@ -127,10 +146,11 @@ export default function HomePage() {
 			</div>
 
 			{/* Stats Section */}
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col items-center justify-between">
+				<h2 className="mb-10 font-bold max-sm:text-xl md:text-2xl">با ما بهترین تجربه را داشته باشید</h2>
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-between w-full ">
 					{stats.map((stat, index) => (
-						<div key={index} className="bg-white rounded-xl shadow-md p-6 text-center">
+						<div key={index} className="bg-slate-50 rounded-xl shadow-md p-6 text-center">
 							<div className="text-indigo-600 text-4xl mb-2">
 								<i className={`fas fa-${stat.icon}`}></i>
 							</div>

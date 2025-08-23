@@ -52,7 +52,7 @@ export default function Navbar() {
 						<div className="hidden md:mr-10 lg:flex  md:space-x-reverse md:space-x-6 ">
 							<button
 								onClick={() => navigate("/")}
-								className="text-indigo-600 border-indigo-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium bg-transparent focus:outline-none"
+								className="text-indigo-600 font-bold border-indigo-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm  bg-transparent focus:outline-none"
 							>
 								خانه
 							</button>
@@ -64,19 +64,19 @@ export default function Navbar() {
 							</a> */}
 							<a
 								href="#"
-								className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
+								className="text-gray-500 font-bold hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm "
 							>
 								خدمات
 							</a>
 							<a
 								href="#"
-								className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
+								className="text-gray-500 font-bold hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm "
 							>
 								درباره ما
 							</a>
 							<a
 								href="#"
-								className="text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium"
+								className="text-gray-500 font-bold hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm"
 							>
 								تماس
 							</a>
@@ -85,15 +85,20 @@ export default function Navbar() {
 
 					{/* Search and buttons */}
 					<div className="hidden lg:flex items-center md:space-x-reverse md:space-x-5">
-						<form onSubmit={handleSearch} className="relative">
+						<form onSubmit={handleSearch} className="relative  flex items-center ">
 							<input
 								type="text"
 								placeholder="جستجو..."
-								className="search-input bg-gray-100 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-40"
+								className="search-input bg-gray-100 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-none w-full"
+								style={{ transition: "none", width: "100%" }}
 								value={searchQuery}
 								onChange={(e) => setSearchQuery(e.target.value)}
 							/>
-							<button type="submit" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+							<button
+								type="submit"
+								className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 transition-none"
+								style={{ transition: "none" }}
+							>
 								<i className="fas fa-search"></i>
 							</button>
 						</form>
@@ -127,15 +132,20 @@ export default function Navbar() {
 			{/* Mobile menu */}
 			<div className={`mobile-menu lg:hidden ${isMenuOpen ? "open" : ""}`}>
 				<div className="pt-2 pb-4 px-4 space-y-1 bg-white shadow-lg">
-					<form onSubmit={handleSearch} className="relative mb-4">
+					<form onSubmit={handleSearch} className="relative mb-4 flex items-center">
 						<input
 							type="text"
 							placeholder="جستجو..."
-							className="search-input bg-gray-100 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full"
+							className="search-input bg-gray-100 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-none w-full"
+							style={{ transition: "none", width: "100%" }}
 							value={searchQuery}
 							onChange={(e) => setSearchQuery(e.target.value)}
 						/>
-						<button type="submit" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+						<button
+							type="submit"
+							className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 transition-none"
+							style={{ transition: "none" }}
+						>
 							<i className="fas fa-search"></i>
 						</button>
 					</form>
