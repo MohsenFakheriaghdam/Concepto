@@ -62,12 +62,12 @@ export default function Navbar() {
 							>
 								محصولات
 							</a> */}
-							<a
-								href="#"
-								className="text-gray-500 font-bold hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm "
+							<button
+								onClick={() => navigate("/aboutus")}
+								className="text-gray-500 font-bold hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm bg-transparent focus:outline-none"
 							>
 								خدمات
-							</a>
+							</button>
 							<a
 								href="#"
 								className="text-gray-500 font-bold hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm "
