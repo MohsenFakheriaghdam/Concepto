@@ -1,4 +1,5 @@
 import React from "react";
+import { Typewriter } from "react-simple-typewriter";
 import { useNavigate } from "react-router-dom";
 
 const { useState, useEffect } = React;
@@ -140,7 +141,17 @@ export default function HomePage() {
 			{/* gradient-bg */}
 			<div className="gradient-bg  text-white py-20 px-4 sm:px-6 lg:px-8 h-[500px] flex items-center justify-center">
 				<div className="max-w-7xl mx-auto text-center">
-					<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">جستجوی هوشمند، نتایج بهتر</h1>
+					<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+						<Typewriter
+							words={["جستجوی هوشمند، نتایج بهتر", "معرفی استارتاپ‌ها و شرکت‌های ایرانی"]}
+							loop={0}
+							cursor
+							cursorStyle="|"
+							typeSpeed={130}
+							deleteSpeed={40}
+							delaySpeed={1500}
+						/>
+					</h1>
 					<p className="text-xl sm:text-2xl opacity-90">کانسپتو اولین مرجع معتبر برای معرفی استارتاپ‌ها و شرکت‌های ایرانی است</p>
 				</div>
 			</div>
